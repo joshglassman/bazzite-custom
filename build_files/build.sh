@@ -2,23 +2,75 @@
 
 set -ouex pipefail
 
-### Install packages
+# Install packages from standard repos
+dnf5 -y install \
+    android-tools \
+    bcc \
+    bpftop \
+    bpftrace \
+    cascadia-code-fonts \
+    cockpit-machines \
+    cockpit-ostree \
+    containerd.io \
+    devpod \
+    flatpak-builder \
+    genisoimage \
+    google-droid-sans-mono-fonts \
+    google-go-mono-fonts \
+    ibm-plex-mono-fonts \
+    incus \
+    incus-agent \
+    iotop \
+    kcli \
+    libvirt-nss \
+    intel-one-mono-fonts \
+    monaspace-nerd-fonts \
+    mozilla-fira-mono-fonts \
+    nicstat \
+    numactl \
+    osbuild-selinux \
+    podman-bootc \
+    podman-machine \
+    podman-tui \
+    podmansh \
+    powerline-fonts \
+    python3-ramalama \
+    qemu-img \
+    qemu-system-x86-core \
+    qemu-user-binfmt \
+    rocm-hip \
+    rocm-opencl \
+    rocm-smi \
+    sysprof \
+    tiptop \
+    trace-cmd \
+    umoci \
+    virt-manager \
+    virt-viewer \
+    virt-v2v
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
+# Install additional packages from alternative repos
+dnf5 config-manager addrepo --id="vscode" \
+    --set=baseurl="https://packages.microsoft.com/yumrepos/vscode" \
+    --set=gpgkey="https://packages.microsoft.com/keys/microsoft.asc" \
+    --set=gpgcheck=1 \
+    --set=enabled=0
+dnf5 -y install --enable-repo="vscode" \
+    code
 
-# this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 config-manager addrepo --id="docker-ce" \
+    --set=baseurl="https://download.docker.com/linux/fedora/$releasever/$basearch/stable" \
+    --set=gpgkey="https://download.docker.com/linux/fedora/gpg" \
+    --set=gpgcheck=1 \
+    --set=enabled=0
+dnf5 -y install --enable-repo="docker-ce" \
+    docker-ce \
+    docker-ce-cli \
+    docker-buildx-plugin \
+    docker-compose-plugin \
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
-
-#### Example for enabling a System Unit File
-
+# Enable a System Unit File
+if rpm -q docker-ce >/dev/null; then
+    systemctl enable docker.socket
+fi
 systemctl enable podman.socket

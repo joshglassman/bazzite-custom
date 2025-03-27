@@ -8,7 +8,9 @@ dnf5 -y install \
     bcc \
     bpftop \
     bpftrace \
+    cargo \
     cascadia-code-fonts \
+    clang-devel \
     cockpit-machines \
     cockpit-ostree \
     devpod \
@@ -35,6 +37,7 @@ dnf5 -y install \
     rocm-hip \
     rocm-opencl \
     rocm-smi \
+    rust-analyzer \
     sysprof \
     tiptop \
     trace-cmd \

@@ -13,6 +13,10 @@ dnf5 -y install \
     cockpit-ostree \
     devpod \
     flatpak-builder \
+    glad2 \
+    glfw-devel \
+    glfw-doc \
+    glm \
     google-droid-sans-mono-fonts \
     google-go-mono-fonts \
     ibm-plex-mono-fonts \
@@ -27,6 +31,8 @@ dnf5 -y install \
     numactl \
     osbuild-selinux \
     powerline-fonts \
+    python-glad2 \
+    python3-glfw \
     python3-ramalama \
     qemu-user-binfmt \
     rocm-hip \

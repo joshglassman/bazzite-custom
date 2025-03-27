@@ -14,9 +14,7 @@ dnf5 -y install \
     devpod \
     flatpak-builder \
     glad2 \
-    glfw-devel \
-    glfw-doc \
-    glm \
+    glm-devel \
     google-droid-sans-mono-fonts \
     google-go-mono-fonts \
     ibm-plex-mono-fonts \
@@ -32,7 +30,6 @@ dnf5 -y install \
     osbuild-selinux \
     powerline-fonts \
     python-glad2 \
-    python3-glfw \
     python3-ramalama \
     qemu-user-binfmt \
     rocm-hip \
@@ -44,6 +41,10 @@ dnf5 -y install \
     virt-manager \
     virt-viewer \
     virt-v2v
+
+# Special handling for installing glfw and dependencies
+dnf5 -y --setopt=disable_excludes="mesa-libGL*" install \
+    glfw-devel
 
 # Install additional packages from alternative repos
 dnf5 config-manager addrepo --id="vscode" \

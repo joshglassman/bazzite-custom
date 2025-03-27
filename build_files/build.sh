@@ -43,7 +43,7 @@ dnf5 -y install \
     virt-v2v
 
 # Special handling for installing glfw and dependencies
-dnf5 -y --setopt=disable_excludes="mesa-libGL*" install \
+dnf5 -y --setopt=disable_excludes=* install \
     glfw-devel
 
 # Install additional packages from alternative repos

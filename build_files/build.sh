@@ -4,40 +4,14 @@ set -ouex pipefail
 
 # Install packages from standard repos
 dnf5 -y install \
-    android-tools \
     bcc \
-    bpftop \
     bpftrace \
-    cascadia-code-fonts \
-    cockpit-machines \
-    cockpit-ostree \
     devpod \
-    flatpak-builder \
-    google-droid-sans-mono-fonts \
-    google-go-mono-fonts \
-    ibm-plex-mono-fonts \
-    incus \
-    incus-agent \
-    iotop \
-    libvirt-nss \
-    intel-one-mono-fonts \
-    monaspace-nerd-fonts \
-    mozilla-fira-mono-fonts \
     nicstat \
-    numactl \
-    osbuild-selinux \
-    powerline-fonts \
-    python3-ramalama \
-    qemu-user-binfmt \
-    rocm-hip \
-    rocm-opencl \
-    rocm-smi \
+    perf \
     sysprof \
     tiptop \
-    trace-cmd \
-    virt-manager \
-    virt-viewer \
-    virt-v2v
+    trace-cmd
 
 # Install additional packages from alternative repos
 dnf5 config-manager addrepo --id="vscode" \

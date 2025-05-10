@@ -6,7 +6,6 @@ set -ouex pipefail
 dnf5 -y install \
     bcc \
     bpftrace \
-    devpod \
     nicstat \
     perf \
     sysprof \

@@ -31,18 +31,6 @@ dnf5 install -y --enable-repo="docker-ce-stable" \
     docker-ce-cli \
     docker-compose-plugin
 
-append_group() {
-	local group_name="$1"
-	if ! grep -q "^$group_name:" /etc/group; then
-		echo "Appending $group_name to /etc/group"
-		grep "^$group_name:" /usr/lib/group | tee -a /etc/group >/dev/null
-	fi
-}
-
-append_group docker
-mapfile -t wheelarray < <(getent group wheel | cut -d ":" -f 4 | tr ',' '\n')
-for user in "${wheelarray[@]}"; do
-	usermod -aG docker "$user"
-done
-
-systemctl enable docker.socket
+systemctl enable custom-setup.service
+systemctl enable docker.service
+systemctl enable containerd.service

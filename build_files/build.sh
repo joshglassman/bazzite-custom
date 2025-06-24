@@ -2,6 +2,9 @@
 
 set -ouex pipefail
 
+# Copy Files to Image
+rsync -rvK /ctx/system_files/ /
+
 # Install packages from standard repos
 dnf5 -y install \
     bcc \

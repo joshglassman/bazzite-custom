@@ -25,6 +25,11 @@ dnf5 config-manager setopt vscode.enabled=0
 dnf5 -y install --enable-repo="vscode" \
     code
 
+dnf5 config-manager addrepo --from-repofile="https://www.scootersoftware.com/scootersoftware.repo"
+dnf5 config-manager setopt scootersoftware.enabled=0
+dnf5 -y install --enable-repo="scootersoftware" \
+    bcompare
+
 # Apply IP Forwarding before installing Docker to prevent messing with LXC networking
 sysctl -p
 

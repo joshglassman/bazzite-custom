@@ -43,8 +43,7 @@ dnf5 install -y --enable-repo="docker-ce-stable" \
     docker-buildx-plugin \
     docker-ce \
     docker-ce-cli \
-    docker-compose-plugin \
-    docker-desktop
+    docker-compose-plugin
 
 systemctl enable custom-setup.service
 systemctl enable docker.service

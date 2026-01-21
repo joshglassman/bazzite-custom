@@ -18,6 +18,7 @@ dnf5 install -y \
     bpftrace \
     nicstat \
     perf \
+    rclone \
     sysprof \
     tiptop \
     trace-cmd \

@@ -16,6 +16,7 @@ rsync -rvK /ctx/system_files/ /
 dnf5 install -y \
     bcc \
     bpftrace \
+    mkcert \
     nicstat \
     perf \
     rclone \

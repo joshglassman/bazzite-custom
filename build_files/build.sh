@@ -16,23 +16,16 @@ rsync -rvK /ctx/system_files/ /
 dnf5 install -y \
     bcc \
     bpftrace \
-    mkcert \
     nicstat \
-    perf \
-    rclone \
-    sysprof \
     tiptop \
-    trace-cmd \
-    zsh
+    trace-cmd
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
+# Install additional packages from copr repos
+dnf5 -y copr enable wezfurlong/wezterm-nightly
+dnf5 -y install wezterm
+dnf5 -y copr disable wezfurlong/wezterm-nightly
 
-# Install additional packages from alternative repos
+# Install additional packages from third-party repos
 dnf5 config-manager addrepo --id="vscode" \
     --set=baseurl="https://packages.microsoft.com/yumrepos/vscode" \
     --set=gpgkey="https://packages.microsoft.com/keys/microsoft.asc" \

@@ -18,7 +18,8 @@ dnf5 install -y \
     bpftrace \
     nicstat \
     tiptop \
-    trace-cmd
+    trace-cmd \
+    zsh
 
 # Install additional packages from copr repos
 dnf5 -y copr enable wezfurlong/wezterm-nightly

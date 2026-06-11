@@ -1,11 +1,10 @@
-<p style="container-type: inline-size; align-items: center;">
+<p align="center">
   <a href="https://bazzite.gg/">
     <picture>
       <source srcset="https://raw.githubusercontent.com/ublue-os/bazzite/main/repo_content/Bazzite_Light.svg" media="(prefers-color-scheme: dark)">
       <img src="https://raw.githubusercontent.com/ublue-os/bazzite/main/repo_content/Bazzite.svg" alt="Bazzite"/>
     </picture>
   </a>
-  <b style="color: light-dark(#5835ce, #ffffff); font-weight: bold; font-size: 4cqw; line-height: normal; display: block; margin: -8.5cqw 0 0 29.65cqw; text-align: left;">Custom</b>
 </p>
 
 # Table of Contents

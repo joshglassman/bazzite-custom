@@ -63,3 +63,5 @@ systemctl enable containerd.service
 
 # Clean up
 dnf -y clean all
+rm -rf /var/lib
+rm -rf /run/dnf

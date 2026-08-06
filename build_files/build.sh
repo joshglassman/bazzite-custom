@@ -16,6 +16,9 @@ dnf -y install \
     trace-cmd \
     zsh
 
+# Install virtualization
+dnf -y group install --with-optional virtualization
+
 # Install additional packages from copr repos
 dnf -y copr enable wezfurlong/wezterm-nightly
 dnf -y install wezterm

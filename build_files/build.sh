@@ -66,5 +66,8 @@ systemctl enable containerd.service
 
 # Clean up
 dnf -y clean all
-rm -rf /var/lib
+rm -rf /boot/extlinux
 rm -rf /run/dnf
+rm -rf /run/gluster
+rm -rf /run/selinux-policy
+rm -rf /var/lib

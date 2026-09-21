@@ -24,6 +24,10 @@ dnf -y copr enable wezfurlong/wezterm-nightly
 dnf -y install wezterm
 dnf -y copr disable wezfurlong/wezterm-nightly
 
+dnf -y copr enable pvermeer/sunshine
+dnf -y install sunshine
+dnf -y copr disable pvermeer/sunshine
+
 # Install additional packages from third-party repos
 dnf config-manager addrepo --id="vscode" \
     --set=baseurl="https://packages.microsoft.com/yumrepos/vscode" \
